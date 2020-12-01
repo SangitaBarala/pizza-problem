@@ -1,0 +1,25 @@
+﻿<Window x:Class="Login.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="Register" Height="450" Width="800">
+    <Grid x:Name="imgRegister">
+        <Grid.Background>
+            <ImageBrush ImageSource="wood-Background.jpg"/>
+        </Grid.Background>
+        <Label Content="Label" HorizontalAlignment="Left" Height="47" Margin="126,80,0,0" VerticalAlignment="Top" Width="159"/>
+        <TextBox HorizontalAlignment="Left" Height="47" Margin="334,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="302"/>
+        <Label x:Name="lblRegName" Content="Name" HorizontalAlignment="Left" Height="47" Margin="126,80,0,0" VerticalAlignment="Top" Width="159" Foreground="#FFF9F5F5" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtRegName" HorizontalAlignment="Left" Height="47" Margin="334,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" FontSize="18"/>
+        <Label Content="E-mail" HorizontalAlignment="Left" Height="48" Margin="126,179,0,0" VerticalAlignment="Top" Width="159" FontWeight="Bold" Foreground="#FFF9F3F3" FontSize="20" HorizontalContentAlignment="Center"/>
+        <Label Content="Password" HorizontalAlignment="Left" Height="51" Margin="133,279,0,0" VerticalAlignment="Top" Width="152" FontSize="20" Foreground="#FFFCFCFC" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <PasswordBox x:Name="txtRegPwd" HorizontalAlignment="Left" Height="51" Margin="334,279,0,0" VerticalAlignment="Top" Width="302"/>
+        <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Height="47" Margin="285,373,0,0" VerticalAlignment="Top" Width="256" Background="#FFF9F6F6" FontSize="20" FontWeight="Bold" Click="btnRegister_Click"/>
+        <Label x:Name="lblRegMsg" Content="Register here to get your pizza !!! :)" HorizontalAlignment="Left" Height="40" Margin="87,10,0,0" VerticalAlignment="Top" Width="665" FontSize="20" FontWeight="Bold" Foreground="#FFFAF5F5" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtRegEmail" HorizontalAlignment="Left" Height="47" Margin="334,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" FontSize="18"/>
+
+    </Grid>
+</Window>
