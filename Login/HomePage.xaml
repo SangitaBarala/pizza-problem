@@ -10,9 +10,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="mogios-hero-4.jpg"/>
         </Grid.Background>
-        <Label x:Name="lblHomePage" Content="Welcome to Perfect Pizza shop" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="340" HorizontalContentAlignment="Center" FontSize="22" Foreground="#FFF4F60A" FontWeight="Bold"/>
+        <Label x:Name="lblHomePage" Content=" Pizza Baby" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="350" HorizontalContentAlignment="Center" FontSize="24" Foreground="#FFF4F60A" FontWeight="Bold" FontFamily="SimSun-ExtB"/>
         <Label x:Name="lblHomeMsg" Content="" HorizontalAlignment="Left" Height="43" Margin="10,52,0,0" VerticalAlignment="Top" Width="309" HorizontalContentAlignment="Center" FontSize="22" FontFamily="Segoe Print" FontWeight="Bold" Foreground="#FFF7E80A"/>
-        <StackPanel x:Name="pnlCrust" HorizontalAlignment="Left" Height="57" Margin="201,140,0,0" VerticalAlignment="Top" Width="118" Background="#FFD9DA15">
+        <StackPanel x:Name="pnlCrust" HorizontalAlignment="Left" Height="57" Margin="23,272,0,0" VerticalAlignment="Top" Width="145" Background="#FFD9DA15">
             <RadioButton x:Name="rdThick" Content="Thick - $5" Height="25" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="rdThick_Checked"/>
             <RadioButton x:Name="rdThin" Content="Thin - $3" Height="25" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="rdThin_Checked"/>
         </StackPanel>
@@ -21,31 +21,32 @@
             <RadioButton x:Name="rdMedium" Content="Medium - $15" Height="25" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="rdMedium_Checked"/>
             <RadioButton x:Name="rdLarge" Content="Large - $20" Height="25" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="rdLarge_Checked"/>
         </StackPanel>
-        <StackPanel x:Name="pnlTopping" HorizontalAlignment="Left" Height="154" Margin="23,266,0,0" VerticalAlignment="Top" Width="145" Background="#FFD9DA15">
-            <CheckBox x:Name="chkOnion" Content="Onion " Margin="0,0,23.2,0" Height="22" RenderTransformOrigin="1.693,0.655" FontSize="14" FontWeight="Bold" Checked="chkOnion_Checked"/>
-            <CheckBox x:Name="chkPineapple" Content="Pineapple " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkPineapple_Checked"/>
-            <CheckBox x:Name="chkSausage" Content="Sausage " Margin="0,0,23.2,0" Height="22" FontWeight="Bold" FontSize="14" Checked="chkSausage_Checked"/>
-            <CheckBox x:Name="chkBacon" Content="Bacon " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkBacon_Checked"/>
-            <CheckBox x:Name="chkPepper" Content="Green Pepper " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkPepper_Checked"/>
-            <CheckBox x:Name="chkOlives" Content="Olives " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkOlives_Checked"/>
+        <StackPanel x:Name="pnlTopping" HorizontalAlignment="Left" Height="184" Margin="227,140,0,0" VerticalAlignment="Top" Width="145" Background="#FFD9DA15">
+            <CheckBox x:Name="chkOnion" Content="Onion " Margin="0,0,23.2,0" Height="22" RenderTransformOrigin="1.693,0.655" FontSize="14" FontWeight="Bold" Checked="chkOnion_Checked" Unchecked="chkOnion_Checked"/>
+            <CheckBox x:Name="chkPineapple" Content="Pineapple " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkPineapple_Checked" Unchecked="chkPineapple_Checked"/>
+            <CheckBox x:Name="chkSausage" Content="Sausage " Margin="0,0,23.2,0" Height="22" FontWeight="Bold" FontSize="14" Checked="chkSausage_Checked" Unchecked="chkSausage_Checked"/>
+            <CheckBox x:Name="chkBacon" Content="Bacon " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkBacon_Checked" Unchecked="chkBacon_Checked"/>
+            <CheckBox x:Name="chkPepper" Content="Green Pepper " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkPepper_Checked" Unchecked="chkPepper_Checked"/>
+            <CheckBox x:Name="chkOlives" Content="Olives " Margin="0,0,23.2,0" Height="22" FontSize="14" FontWeight="Bold" Checked="chkOlives_Checked" Unchecked="chkOlives_Checked"/>
         </StackPanel>
-        <StackPanel x:Name="pnlExtras" HorizontalAlignment="Left" Height="137" Margin="201,266,0,0" VerticalAlignment="Top" Width="195" Background="#FFD9DA15">
-            <CheckBox x:Name="chkPasta" Content="Pasta - $5" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" />
-            <CheckBox x:Name="chkGarlicBread" Content="Garlic Bread - $4" Height="26" Margin="0,0,0.4,0" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="chkWings" Content="Chicken Wings - $6" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" />
-            <CheckBox x:Name="chkFries" Content="Fries - $3" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" />
-            <CheckBox x:Name="chkCan" Content="Can Of Pop - $2" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" />
+        <StackPanel x:Name="pnlExtras" HorizontalAlignment="Left" Height="184" Margin="437,140,0,0" VerticalAlignment="Top" Width="195" Background="#FFD9DA15">
+            <CheckBox x:Name="chkPasta" Content="Pasta - $5" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="chkPasta_Checked" Unchecked="chkPasta_Checked"/>
+            <CheckBox x:Name="chkGarlicBread" Content="Garlic Bread - $4" Height="26" Margin="0,0,0.4,0" FontWeight="Bold" FontSize="14" Checked="chkGarlicBread_Checked" Unchecked="chkGarlicBread_Checked"/>
+            <CheckBox x:Name="chkWings" Content="Chicken Wings - $6" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="chkWings_Checked" Unchecked="chkWings_Checked" />
+            <CheckBox x:Name="chkFries" Content="Fries - $3" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="chkFries_Checked" Unchecked="chkFries_Checked" />
+            <CheckBox x:Name="chkCan" Content="Can Of Pop - $2" Height="26" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="chkCan_Checked" Unchecked="chkCan_Checked"/>
         </StackPanel>
-        <Label x:Name="lblSize" Content="Size" HorizontalAlignment="Left" Height="33" Margin="23,102,0,0" VerticalAlignment="Top" Width="104" FontSize="18" Foreground="#FFF1EA07"/>
-        <Label x:Name="lblCrust" Content="Crust" HorizontalAlignment="Left" Height="33" Margin="201,102,0,0" VerticalAlignment="Top" Width="118" Foreground="#FFF9F207" FontSize="18"/>
-        <Label x:Name="lblExtras" Content="Extras" HorizontalAlignment="Left" Height="33" Margin="201,228,0,0" VerticalAlignment="Top" Width="118" FontSize="18" Foreground="#FFF9F207"/>
-        <Label x:Name="lblTopping" Content="Toppings" HorizontalAlignment="Left" Height="38" Margin="23,228,0,0" VerticalAlignment="Top" Width="104" Foreground="#FFF9F207" FontSize="18"/>
-        <Label x:Name="lblHomeSubtotal" Content="Total before tax" HorizontalAlignment="Left" Height="37" Margin="23,449,0,-66" VerticalAlignment="Top" Width="145" Foreground="#FFF9F207" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblHomeTax" Content="Tax" HorizontalAlignment="Left" Height="37" Margin="23,491,0,-108" VerticalAlignment="Top" Width="145" Foreground="#FFF9F207" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblHomeTaxResult" Content="" HorizontalAlignment="Left" Height="37" Margin="186,491,0,-108" VerticalAlignment="Top" Width="77" FontSize="18" Foreground="#FFF9F207" FontWeight="Bold"/>
-        <Label x:Name="lblHomeTotal" Content="Grand Total" HorizontalAlignment="Left" Height="37" Margin="23,533,0,-150" VerticalAlignment="Top" Width="145" Foreground="#FFF9F207" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblHomeGrandResult" Content="" HorizontalAlignment="Left" Height="37" Margin="186,533,0,-150" VerticalAlignment="Top" Width="77" FontSize="18" Foreground="#FFF9F207" FontWeight="Bold"/>
-        <Label x:Name="lblSubtotalResult" Content="" HorizontalAlignment="Left" Height="37" Margin="186,449,0,-66" VerticalAlignment="Top" Width="77" FontSize="16" FontWeight="Bold" Foreground="#FFF3ED2A"/>
+        <Label x:Name="lblSize" Content="Size" HorizontalAlignment="Left" Height="38" Margin="23,97,0,0" VerticalAlignment="Top" Width="104" FontSize="18" Foreground="#FFF1EA07"/>
+        <Label x:Name="lblCrust" Content="Crust" HorizontalAlignment="Left" Height="33" Margin="23,234,0,0" VerticalAlignment="Top" Width="118" Foreground="#FFF9F207" FontSize="18"/>
+        <Label x:Name="lblExtras" Content="Extras" HorizontalAlignment="Left" Height="38" Margin="437,97,0,0" VerticalAlignment="Top" Width="118" FontSize="18" Foreground="#FFF9F207"/>
+        <Label x:Name="lblTopping" Content="Toppings" HorizontalAlignment="Left" Height="38" Margin="227,97,0,0" VerticalAlignment="Top" Width="104" Foreground="#FFF9F207" FontSize="18"/>
+        <Label x:Name="lblHomeSubtotal" Content="Total before tax" HorizontalAlignment="Left" Height="37" Margin="23,373,0,0" VerticalAlignment="Top" Width="145" Foreground="#FFF9F207" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblHomeTax" Content="Tax" HorizontalAlignment="Left" Height="37" Margin="23,425,0,-42" VerticalAlignment="Top" Width="145" Foreground="#FFF9F207" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblHomeTaxResult" Content="" HorizontalAlignment="Left" Height="37" Margin="227,425,0,-42" VerticalAlignment="Top" Width="77" FontSize="18" Foreground="#FFF9F207" FontWeight="Bold"/>
+        <Label x:Name="lblHomeTotal" Content="Grand Total" HorizontalAlignment="Left" Height="37" Margin="23,477,0,-94" VerticalAlignment="Top" Width="145" Foreground="#FFF9F207" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblHomeGrandResult" Content="" HorizontalAlignment="Left" Height="37" Margin="227,477,0,-94" VerticalAlignment="Top" Width="77" FontSize="18" Foreground="#FFF9F207" FontWeight="Bold"/>
+        <Label x:Name="lblSubtotalResult" Content="" HorizontalAlignment="Left" Height="37" Margin="227,373,0,0" VerticalAlignment="Top" Width="77" FontSize="16" FontWeight="Bold" Foreground="#FFF3ED2A"/>
+        <Button x:Name="btnOrder" Content="Order Now" HorizontalAlignment="Left" Height="47" Margin="437,373,0,0" VerticalAlignment="Top" Width="200" Background="#FFE44747" FontSize="18" FontWeight="Bold" BorderBrush="#FFE8EA26" Click="btnOrder_Click"/>
 
     </Grid>
 </Window>

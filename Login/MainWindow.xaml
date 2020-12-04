@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Pizza Shop" Height="450" Width="800">
     <Grid Background="#FF383722">
-        <Image x:Name="imgLogin" HorizontalAlignment="Left" Height="259" Margin="10,88,0,0" VerticalAlignment="Top" Width="413" Source="dc9ft8n-117e5958-78d3-4fc4-8324-51be6084930e.png" Stretch="UniformToFill"/>
-        <Label x:Name="lblLogin" Content="Pizza Baby" HorizontalAlignment="Left" Height="73" Margin="46,10,0,0" VerticalAlignment="Top" Width="273" Foreground="#FFF05F24" FontFamily="Segoe Print" FontSize="36"/>
+        <Image x:Name="imgLogin" HorizontalAlignment="Left" Height="275" Margin="10,114,0,0" VerticalAlignment="Top" Width="413" Source="dc9ft8n-117e5958-78d3-4fc4-8324-51be6084930e.png" Stretch="UniformToFill"/>
+        <Label x:Name="lblLogin" Content="Pizza Baby" HorizontalAlignment="Left" Height="73" Margin="46,10,0,0" VerticalAlignment="Top" Width="259" Foreground="#FFF05F24" FontFamily="Segoe Print" FontSize="36"/>
         <Label x:Name="lblEmail" Content="Username" HorizontalAlignment="Left" Height="41" Margin="470,114,0,0" VerticalAlignment="Top" Width="97" FontSize="18" FontWeight="Bold" Foreground="#FFF9F2F2"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="41" Margin="580,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <Label x:Name="lblPassword" Content="Password" HorizontalAlignment="Left" Height="41" Margin="470,188,0,0" VerticalAlignment="Top" Width="105" FontSize="18" FontWeight="Bold" Foreground="#FFFAF5F5"/>

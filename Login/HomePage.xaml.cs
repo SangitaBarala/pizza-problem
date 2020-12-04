@@ -21,58 +21,62 @@ namespace Login
     /// </summary>
     public partial class HomePage : Window
     {
+        
+        int toppings=0;
        
+        double size_Price = 0.00;
+        double crust_Price = 0.00;
+        double topping_Price = 0.00;
+        double extra_Price = 0.00;
+
         public HomePage(string email)
         {
             InitializeComponent();
             lblHomeMsg.Content = "Hii " + email;
         }
-        double total = 0.00;
-        int toppings;
-        bool IsChecked = false;
+      
         private void rdSmall_Checked(object sender, RoutedEventArgs e)
         {
            if(rdSmall.IsChecked == true)
             {
-                total += 10.00;
+               size_Price = 10.00;
             }
-            lblSubtotalResult.Content = total;
-
+            update_ui();
         }
         private void rdMedium_Checked(object sender, RoutedEventArgs e)
         {
             if (rdMedium.IsChecked == true)
             {
-                total += 15.00;
+                size_Price = 15.00;
             }
-            lblSubtotalResult.Content = total;
+            update_ui();
         }
 
         private void rdLarge_Checked(object sender, RoutedEventArgs e)
         {
             if (rdLarge.IsChecked == true)
             {
-                total += 20.00;
+                size_Price = 20.00;
             }
-            lblSubtotalResult.Content = total;
+            update_ui();
         }
 
         private void rdThick_Checked(object sender, RoutedEventArgs e)
         {
             if (rdThick.IsChecked == true)
             {
-                total += 5.00;
+                crust_Price = 5.00;
             }
-            lblSubtotalResult.Content = total;
+            update_ui();
         }
 
         private void rdThin_Checked(object sender, RoutedEventArgs e)
         {
             if (rdThin.IsChecked == true)
             {
-                total += 3.00;
+                crust_Price = 3.00;
             }
-            lblSubtotalResult.Content = total;
+            update_ui();
         }
 
         private void chkOnion_Checked(object sender, RoutedEventArgs e)
@@ -82,10 +86,14 @@ namespace Login
                 toppings++;
                 if (toppings > 2)
                 {
-                    total += 1.00;
+                    topping_Price += 1.00;
                 }
             }
-            lblSubtotalResult.Content = total;
+            else
+            {                 
+                topping_Price -= 1.00;
+            }
+            update_ui(); ;
         }
 
         private void chkPineapple_Checked(object sender, RoutedEventArgs e)
@@ -95,10 +103,14 @@ namespace Login
                 toppings++;
                 if (toppings > 2)
                 {
-                    total += 1.00;
+                    topping_Price += 1.00;
                 }
             }
-            lblSubtotalResult.Content = total;
+            else 
+            {                 
+                topping_Price -= 1.00;
+            }
+            update_ui();
         }
 
         private void chkSausage_Checked(object sender, RoutedEventArgs e)
@@ -108,10 +120,14 @@ namespace Login
                 toppings++;
                 if (toppings > 2)
                 {
-                    total += 1.00;
+                    topping_Price += 1.00;
                 }
             }
-            lblSubtotalResult.Content = total;
+            else
+            { 
+                topping_Price -= 1.00;
+            }
+            update_ui();
         }
 
         private void chkBacon_Checked(object sender, RoutedEventArgs e)
@@ -121,10 +137,14 @@ namespace Login
                 toppings++;
                 if (toppings > 2)
                 {
-                    total += 1.00;
+                    topping_Price += 1.00;
                 }
             }
-            lblSubtotalResult.Content = total;
+            else
+            {
+                topping_Price -= 1.00;
+            }
+            update_ui(); 
         }
 
         private void chkPepper_Checked(object sender, RoutedEventArgs e)
@@ -134,10 +154,14 @@ namespace Login
                 toppings++;
                 if (toppings > 2)
                 {
-                    total += 1.00;
+                    topping_Price += 1.00;
                 }
             }
-            lblSubtotalResult.Content = total;
+            else
+            {
+                topping_Price -= 1.00;
+            }
+            update_ui();
         }
 
         private void chkOlives_Checked(object sender, RoutedEventArgs e)
@@ -147,12 +171,202 @@ namespace Login
                 toppings++;
                 if (toppings > 2)
                 {
-                    total += 1.00;
+                    topping_Price += 1.00;
                 }
             }
-            lblSubtotalResult.Content = total;
+            else
+            {
+                topping_Price -= 1.00;
+            }
+            update_ui();
         }
 
-      
+        private void chkPasta_Checked(object sender, RoutedEventArgs e)
+        {
+           if(chkPasta.IsChecked==true)
+            {
+                extra_Price += 5.00;
+            }
+            else
+            {
+               extra_Price -= 5.00;    
+            }
+            update_ui();
+        }
+
+        private void chkGarlicBread_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chkGarlicBread.IsChecked == true)
+            {
+                extra_Price += 4.00;
+            }
+            else
+            {
+                extra_Price -= 4.00;
+            }
+            update_ui();
+        }
+
+        private void chkWings_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chkWings.IsChecked == true)
+            {
+                extra_Price += 6.00;
+            }
+            else
+            {
+                extra_Price -= 6.00;
+            }
+            update_ui();
+        }
+
+        private void chkFries_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chkFries.IsChecked == true)
+            {
+                extra_Price += 3.00;
+            }
+            else
+            {
+                extra_Price -= 3.00;
+            }
+            update_ui();
+        }
+
+        private void chkCan_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chkCan.IsChecked == true)
+            {
+                extra_Price += 2.00;
+            }
+            else
+            {
+                extra_Price -= 2.00;
+            }
+            update_ui();
+        }
+        public double[] calculate_price()
+        {
+            double total= size_Price + crust_Price + topping_Price + extra_Price;
+            double tax = Math.Round(0.13 * total,2);
+            double[] price = {total,tax, Math.Round(total+tax,2)};
+            return price;      
+        }
+        public void update_ui()
+        {
+            double[] prices = calculate_price();
+            {
+                 lblSubtotalResult.Content = prices[0];
+                 lblHomeTaxResult.Content = prices[1];
+                 lblHomeGrandResult.Content = prices[2];
+               
+            }
+        }
+
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            
+            string size="";
+            string crust="";
+            //string topping = "";
+            //string extra = "";
+            
+
+            if (rdSmall.IsChecked==true)
+            {
+                size = "small";
+            }
+            if (rdMedium.IsChecked == true)
+            {
+                size = "Medium";
+            }
+            if (rdLarge.IsChecked == true)
+            {
+                size = "Large";
+            }
+            if (rdThick.IsChecked == true)
+            {
+                crust = "Thick";
+            }
+            if (rdThin.IsChecked == true)
+            {
+                crust = "Thin";
+            }
+            //if (chkOnion.IsChecked == true)
+            //{
+            //    topping = "Onion";
+            //}
+            //if (chkPineapple.IsChecked == true)
+            //{
+            //    topping = "Pineapple";
+            //}
+            //if (chkSausage.IsChecked == true)
+            //{
+            //    topping = "sausage";
+            //}
+            //if (chkPepper.IsChecked == true)
+            //{
+            //    topping = "Green Pepper";
+            //}
+            //if (chkOlives.IsChecked == true)
+            //{
+            //    topping = "Olives";
+            //}
+            //if (chkBacon.IsChecked == true)
+            //{
+            //    topping = "Bacon";
+            //}
+            //if (chkPasta.IsChecked == true)
+            //{
+            //    extra = "Pasta";
+            //}
+            //if (chkGarlicBread.IsChecked == true)
+            //{
+            //    extra = "Garlic Bread";
+            //}
+            //if (chkWings.IsChecked == true)
+            //{
+            //    extra = "Chicken Wings";
+            //}
+            //if (chkFries.IsChecked == true)
+            //{
+            //    extra = "Fries";
+            //}
+            //if (chkCan.IsChecked == true)
+            //{
+            //    extra = "Can of Pop";
+            //}
+
+            string connection = "datasource=localhost; port=3306; username=root; password=sang12529; database=pizzashop";
+            
+            string query1 = "insert into order(orderId,size,crust) values (null,'" + size + "','" + crust + "')";
+            //string query2 = "insert into topping(`toppingId`,`orderId`,`topping`) values(null,'" + orderId + "','" + topping + "')";
+            //string query3 = "insert into extra(`extraId`,`orderId`,`extraName`) values(null,'" + orderId2 + "','" + extra + "')";
+
+            MySqlConnection conn = new MySqlConnection(connection);
+
+            MySqlCommand command1 = new MySqlCommand(query1, conn);
+            //MySqlCommand command2 = new MySqlCommand(query2, conn);
+            //MySqlCommand command3 = new MySqlCommand(query3, conn);
+
+            command1.CommandTimeout = 60;
+            //command2.CommandTimeout = 60;
+            //command3.CommandTimeout = 60;
+           
+            conn.Open();
+
+            MySqlDataReader dataReader = command1.ExecuteReader();
+            //MySqlDataReader dataReader1 = command1.ExecuteReader();
+
+            //int orderId = Convert.ToInt32(command2.ExecuteScalar());
+            //int orderId2 = Convert.ToInt32(command3.ExecuteScalar());
+
+           // MySqlDataReader dataReader2 = command2.ExecuteReader();
+
+            conn.Close();
+
+            MessageBox.Show("Thank you ! Your order has been placed");
+        }
     }
 }
+
