@@ -10,8 +10,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="mogios-hero-4.jpg"/>
         </Grid.Background>
-        <Label x:Name="lblHomePage" Content=" Pizza Baby" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="350" HorizontalContentAlignment="Center" FontSize="24" Foreground="#FFF4F60A" FontWeight="Bold" FontFamily="SimSun-ExtB"/>
-        <Label x:Name="lblHomeMsg" Content="" HorizontalAlignment="Left" Height="43" Margin="10,52,0,0" VerticalAlignment="Top" Width="309" HorizontalContentAlignment="Center" FontSize="22" FontFamily="Segoe Print" FontWeight="Bold" Foreground="#FFF7E80A"/>
+        <Label x:Name="lblHomePage" Content=" Pizza Baby" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="794" HorizontalContentAlignment="Center" FontSize="36" Foreground="#FFF4F60A" FontWeight="Bold" FontFamily="SimSun-ExtB" Margin="0,0,-0.4,0" Background="#FFC23C3C"/>
+        <Label x:Name="lblHomeMsg" Content="" HorizontalAlignment="Left" Height="43" Margin="10,54,0,0" VerticalAlignment="Top" Width="309" HorizontalContentAlignment="Center" FontSize="22" FontFamily="Segoe Print" FontWeight="Bold" Foreground="#FFF7E80A"/>
         <StackPanel x:Name="pnlCrust" HorizontalAlignment="Left" Height="57" Margin="23,272,0,0" VerticalAlignment="Top" Width="145" Background="#FFD9DA15">
             <RadioButton x:Name="rdThick" Content="Thick - $5" Height="25" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="rdThick_Checked"/>
             <RadioButton x:Name="rdThin" Content="Thin - $3" Height="25" Margin="0,0,0.4,0" FontSize="14" FontWeight="Bold" Checked="rdThin_Checked"/>

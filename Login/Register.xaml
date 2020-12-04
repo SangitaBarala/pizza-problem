@@ -20,6 +20,6 @@
         <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Height="47" Margin="285,373,0,0" VerticalAlignment="Top" Width="256" Background="#FFF9F6F6" FontSize="20" FontWeight="Bold" Click="btnRegister_Click"/>
         <Label x:Name="lblRegMsg" Content="Register here to get your pizza !!! :)" HorizontalAlignment="Left" Height="40" Margin="87,10,0,0" VerticalAlignment="Top" Width="665" FontSize="20" FontWeight="Bold" Foreground="#FFFAF5F5" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="txtRegEmail" HorizontalAlignment="Left" Height="47" Margin="334,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" FontSize="18"/>
-
-    </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+           </Grid>
 </Window>

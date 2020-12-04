@@ -26,6 +26,8 @@ namespace Login
             InitializeComponent();
         }
 
+        /* If user register its information will be stored into databse
+         */
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             string name = txtRegName.Text;
@@ -52,3 +54,4 @@ namespace Login
         }
     }
 }
+

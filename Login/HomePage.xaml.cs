@@ -35,6 +35,8 @@ namespace Login
             lblHomeMsg.Content = "Hii " + email;
         }
       
+        /*pizza size radio buttons
+         */
         private void rdSmall_Checked(object sender, RoutedEventArgs e)
         {
            if(rdSmall.IsChecked == true)
@@ -61,6 +63,8 @@ namespace Login
             update_ui();
         }
 
+        /*pizza crust radio buttons
+        */
         private void rdThick_Checked(object sender, RoutedEventArgs e)
         {
             if (rdThick.IsChecked == true)
@@ -79,6 +83,8 @@ namespace Login
             update_ui();
         }
 
+        /*pizza toppings checkbox buttons
+        */
         private void chkOnion_Checked(object sender, RoutedEventArgs e)
         {
             if(chkOnion.IsChecked==true)
@@ -90,8 +96,12 @@ namespace Login
                 }
             }
             else
-            {                 
-                topping_Price -= 1.00;
+            {
+                toppings--;
+                if(toppings>2)
+                {
+                    topping_Price -= 1.00;
+                }   
             }
             update_ui(); ;
         }
@@ -107,8 +117,12 @@ namespace Login
                 }
             }
             else 
-            {                 
-                topping_Price -= 1.00;
+            {
+                toppings--;
+                if (toppings > 2)
+                {
+                    topping_Price -= 1.00;
+                }
             }
             update_ui();
         }
@@ -124,8 +138,12 @@ namespace Login
                 }
             }
             else
-            { 
-                topping_Price -= 1.00;
+            {
+                toppings--;
+                if (toppings > 2)
+                {
+                    topping_Price -= 1.00;
+                }
             }
             update_ui();
         }
@@ -142,7 +160,11 @@ namespace Login
             }
             else
             {
-                topping_Price -= 1.00;
+                toppings--;
+                if (toppings > 2)
+                {
+                    topping_Price -= 1.00;
+                }
             }
             update_ui(); 
         }
@@ -159,7 +181,11 @@ namespace Login
             }
             else
             {
-                topping_Price -= 1.00;
+                toppings--;
+                if (toppings > 2)
+                {
+                    topping_Price -= 1.00;
+                }
             }
             update_ui();
         }
@@ -176,11 +202,17 @@ namespace Login
             }
             else
             {
-                topping_Price -= 1.00;
+                toppings--;
+                if (toppings > 2)
+                {
+                    topping_Price -= 1.00;
+                }
             }
             update_ui();
         }
 
+        /*pizza extras checkbox buttons
+        */
         private void chkPasta_Checked(object sender, RoutedEventArgs e)
         {
            if(chkPasta.IsChecked==true)
@@ -245,6 +277,9 @@ namespace Login
             }
             update_ui();
         }
+
+        /*Calculate the price based on selected options of pizza
+         */
         public double[] calculate_price()
         {
             double total= size_Price + crust_Price + topping_Price + extra_Price;
@@ -256,21 +291,20 @@ namespace Login
         {
             double[] prices = calculate_price();
             {
-                 lblSubtotalResult.Content = prices[0];
-                 lblHomeTaxResult.Content = prices[1];
-                 lblHomeGrandResult.Content = prices[2];
-               
+                 lblSubtotalResult.Content = "$" + prices[0];
+                 lblHomeTaxResult.Content =  "$" + prices[1];
+                 lblHomeGrandResult.Content ="$" + prices[2];  
             }
         }
 
+        /*Order button implementation to place order and store the values in database
+        */
         private void btnOrder_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {  
             string size="";
             string crust="";
             //string topping = "";
             //string extra = "";
-            
 
             if (rdSmall.IsChecked==true)
             {
@@ -336,37 +370,47 @@ namespace Login
             //{
             //    extra = "Can of Pop";
             //}
-
-            string connection = "datasource=localhost; port=3306; username=root; password=sang12529; database=pizzashop";
             
-            string query1 = "insert into order(orderId,size,crust) values (null,'" + size + "','" + crust + "')";
+            string connection = "datasource=localhost; port=3306; username=root; password=sang12529; database=pizzashop";
+
+            string query1 = "insert into order (`orderId`,`size`,`crust`) values(null,'" + size + "','" + crust + "');";
+            
             //string query2 = "insert into topping(`toppingId`,`orderId`,`topping`) values(null,'" + orderId + "','" + topping + "')";
             //string query3 = "insert into extra(`extraId`,`orderId`,`extraName`) values(null,'" + orderId2 + "','" + extra + "')";
 
             MySqlConnection conn = new MySqlConnection(connection);
 
             MySqlCommand command1 = new MySqlCommand(query1, conn);
+
+            //command1.CommandType = CommandType.StoredProcedure;
+            //command1.Parameters.AddWithValue("@orderId", null);
+            //command1.Parameters.AddWithValue("@size", size);
+            //command1.Parameters.AddWithValue("@crust", crust);
             //MySqlCommand command2 = new MySqlCommand(query2, conn);
             //MySqlCommand command3 = new MySqlCommand(query3, conn);
 
             command1.CommandTimeout = 60;
             //command2.CommandTimeout = 60;
             //command3.CommandTimeout = 60;
-           
+
             conn.Open();
-
+            
             MySqlDataReader dataReader = command1.ExecuteReader();
-            //MySqlDataReader dataReader1 = command1.ExecuteReader();
 
+            //MySqlDataReader dataReader1 = command1.ExecuteReader();
             //int orderId = Convert.ToInt32(command2.ExecuteScalar());
             //int orderId2 = Convert.ToInt32(command3.ExecuteScalar());
-
-           // MySqlDataReader dataReader2 = command2.ExecuteReader();
+            // MySqlDataReader dataReader2 = command2.ExecuteReader();
 
             conn.Close();
-
-            MessageBox.Show("Thank you ! Your order has been placed");
+            
+            
+            MessageBox.Show("Thank You ! your order has been placed");    
         }
+        //public static void main(string[] args)
+        //{
+        //    Application.Run();
+        //}
     }
 }
 

@@ -27,6 +27,8 @@ namespace Login
             InitializeComponent();
         }
 
+        /*Login and Registration by user
+         */
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string email = txtEmail.Text;
@@ -51,6 +53,8 @@ namespace Login
             this.Hide();
         }
 
+        /*Registered user can login. Login page is dynamic so for login you can use: username:sam@gmail.com and password:1234
+         */
         public bool Login(string email, string password)
         {
             string connection = "datasource=localhost; port=3306; username=root; password=sang12529; database=pizzashop";
