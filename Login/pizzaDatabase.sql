@@ -16,79 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `extra`
+-- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `extra`;
+DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `extra` (
-  `extraId` int(11) NOT NULL AUTO_INCREMENT,
-  `orderId` int(11) NOT NULL,
-  `extraName` varchar(45) NOT NULL,
-  PRIMARY KEY (`extraId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `extra`
---
-
-LOCK TABLES `extra` WRITE;
-/*!40000 ALTER TABLE `extra` DISABLE KEYS */;
-/*!40000 ALTER TABLE `extra` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `order`
---
-
-DROP TABLE IF EXISTS `order`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `order` (
-  `orderId` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `size` varchar(45) NOT NULL,
   `crust` varchar(45) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`orderId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `order`
---
-
-LOCK TABLES `order` WRITE;
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `topping`
---
-
-DROP TABLE IF EXISTS `topping`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `topping` (
-  `toppingId` int(11) NOT NULL AUTO_INCREMENT,
-  `orderId` int(11) NOT NULL,
   `topping` varchar(45) NOT NULL,
+  `extra` varchar(45) NOT NULL,
+  `total` double DEFAULT NULL,
+  `tax` double DEFAULT NULL,
+  `grandTotal` double DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`toppingId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `topping`
+-- Dumping data for table `orders`
 --
 
-LOCK TABLES `topping` WRITE;
-/*!40000 ALTER TABLE `topping` DISABLE KEYS */;
-/*!40000 ALTER TABLE `topping` ENABLE KEYS */;
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,'small','Thick','Olives','Fries',0,NULL,NULL,'2020-12-04 18:02:43','2020-12-04 18:02:43'),(2,'small','Thick','Pineapple','Pasta',0,NULL,NULL,'2020-12-04 18:02:43','2020-12-04 18:02:43'),(3,'Large','Thin','Bacon','Pasta',0,0,0,'2020-12-04 19:56:56','2020-12-04 19:56:56'),(4,'Medium','Thin','Bacon','Garlic Bread',0,0,0,'2020-12-04 20:07:11','2020-12-04 20:07:11'),(5,'Large','Thick','Bacon, Green Pepper, ','Chicken Wings, Garlic bread, ',0,0,0,'2020-12-04 20:15:14','2020-12-04 20:15:14'),(6,'small','Thick','Olives, Green Pepper, Bacon, Sausage, ','Fries, Chicken Wings, ',0,0,0,'2020-12-04 20:33:02','2020-12-04 20:33:02'),(7,'small','Thin','Green Pepper, Sausage, ','can of pop, Fries, ',0,0,0,'2020-12-04 20:38:09','2020-12-04 20:38:09'),(8,'Medium','Thick','Bacon, Sausage, ','Garlic bread, Chicken Wings, ',30,3.9,33.9,'2020-12-04 20:40:57','2020-12-04 20:40:57'),(9,'Medium','Thin','Pineapple, Bacon, ','Chicken Wings, Fries, ',27,3.51,30.51,'2020-12-04 20:52:28','2020-12-04 20:52:28'),(10,'small','Thick','Onion, Olives, ','Pasta, Chicken Wings, pop, ',22,2.86,24.86,'2020-12-04 21:05:14','2020-12-04 21:05:14');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -128,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-04 15:17:31
+-- Dump completed on 2020-12-06 17:00:13

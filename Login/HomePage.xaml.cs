@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace Login
 {
@@ -29,6 +30,16 @@ namespace Login
         double topping_Price = 0.00;
         double extra_Price = 0.00;
 
+        string size = "";
+        string crust = "";
+        string topping = "";
+        string extra = "";
+        //double total=0.00;
+        //double tax = 0.00;
+        //double grandTotal = 0.00;
+      
+        ArrayList list = new ArrayList();
+
         public HomePage(string email)
         {
             InitializeComponent();
@@ -42,6 +53,7 @@ namespace Login
            if(rdSmall.IsChecked == true)
             {
                size_Price = 10.00;
+                size = "small";
             }
             update_ui();
         }
@@ -50,6 +62,7 @@ namespace Login
             if (rdMedium.IsChecked == true)
             {
                 size_Price = 15.00;
+                size = "Medium";
             }
             update_ui();
         }
@@ -59,6 +72,7 @@ namespace Login
             if (rdLarge.IsChecked == true)
             {
                 size_Price = 20.00;
+                size = "Large";
             }
             update_ui();
         }
@@ -70,6 +84,7 @@ namespace Login
             if (rdThick.IsChecked == true)
             {
                 crust_Price = 5.00;
+                crust = "Thick";
             }
             update_ui();
         }
@@ -79,6 +94,7 @@ namespace Login
             if (rdThin.IsChecked == true)
             {
                 crust_Price = 3.00;
+                crust = "Thin";
             }
             update_ui();
         }
@@ -94,6 +110,7 @@ namespace Login
                 {
                     topping_Price += 1.00;
                 }
+                topping = string.Concat(topping, "Onion, ");
             }
             else
             {
@@ -101,7 +118,8 @@ namespace Login
                 if(toppings>2)
                 {
                     topping_Price -= 1.00;
-                }   
+                }  
+                
             }
             update_ui(); ;
         }
@@ -115,6 +133,7 @@ namespace Login
                 {
                     topping_Price += 1.00;
                 }
+                topping = string.Concat(topping, "Pineapple, ");
             }
             else 
             {
@@ -136,6 +155,7 @@ namespace Login
                 {
                     topping_Price += 1.00;
                 }
+                topping = string.Concat(topping, "Sausage, ");
             }
             else
             {
@@ -157,6 +177,7 @@ namespace Login
                 {
                     topping_Price += 1.00;
                 }
+                topping = string.Concat(topping, "Bacon, ");
             }
             else
             {
@@ -178,6 +199,7 @@ namespace Login
                 {
                     topping_Price += 1.00;
                 }
+                topping = string.Concat(topping, "Green Pepper, ");
             }
             else
             {
@@ -199,6 +221,7 @@ namespace Login
                 {
                     topping_Price += 1.00;
                 }
+                topping = string.Concat(topping, "Olives, ");
             }
             else
             {
@@ -218,6 +241,7 @@ namespace Login
            if(chkPasta.IsChecked==true)
             {
                 extra_Price += 5.00;
+                extra = string.Concat(extra, "Pasta, ");
             }
             else
             {
@@ -231,6 +255,7 @@ namespace Login
             if (chkGarlicBread.IsChecked == true)
             {
                 extra_Price += 4.00;
+                extra = string.Concat(extra, "Garlic bread, ");
             }
             else
             {
@@ -244,6 +269,7 @@ namespace Login
             if (chkWings.IsChecked == true)
             {
                 extra_Price += 6.00;
+                extra = string.Concat(extra, "Chicken Wings, ");
             }
             else
             {
@@ -257,6 +283,7 @@ namespace Login
             if (chkFries.IsChecked == true)
             {
                 extra_Price += 3.00;
+                extra = string.Concat(extra, "Fries, ");
             }
             else
             {
@@ -270,6 +297,7 @@ namespace Login
             if (chkCan.IsChecked == true)
             {
                 extra_Price += 2.00;
+                extra = string.Concat(extra, "pop, ");
             }
             else
             {
@@ -284,7 +312,8 @@ namespace Login
         {
             double total= size_Price + crust_Price + topping_Price + extra_Price;
             double tax = Math.Round(0.13 * total,2);
-            double[] price = {total,tax, Math.Round(total+tax,2)};
+            double grandTotal = Math.Round(total + tax, 2);
+            double[] price = {total,tax,grandTotal};
             return price;      
         }
         public void update_ui()
@@ -300,117 +329,32 @@ namespace Login
         /*Order button implementation to place order and store the values in database
         */
         private void btnOrder_Click(object sender, RoutedEventArgs e)
-        {  
-            string size="";
-            string crust="";
-            //string topping = "";
-            //string extra = "";
+        {
+            double total = size_Price + crust_Price + topping_Price + extra_Price;
+            double tax = Math.Round(0.13 * total, 2);
+            double grandTotal = Math.Round(total + tax, 2);
 
-            if (rdSmall.IsChecked==true)
-            {
-                size = "small";
-            }
-            if (rdMedium.IsChecked == true)
-            {
-                size = "Medium";
-            }
-            if (rdLarge.IsChecked == true)
-            {
-                size = "Large";
-            }
-            if (rdThick.IsChecked == true)
-            {
-                crust = "Thick";
-            }
-            if (rdThin.IsChecked == true)
-            {
-                crust = "Thin";
-            }
-            //if (chkOnion.IsChecked == true)
-            //{
-            //    topping = "Onion";
-            //}
-            //if (chkPineapple.IsChecked == true)
-            //{
-            //    topping = "Pineapple";
-            //}
-            //if (chkSausage.IsChecked == true)
-            //{
-            //    topping = "sausage";
-            //}
-            //if (chkPepper.IsChecked == true)
-            //{
-            //    topping = "Green Pepper";
-            //}
-            //if (chkOlives.IsChecked == true)
-            //{
-            //    topping = "Olives";
-            //}
-            //if (chkBacon.IsChecked == true)
-            //{
-            //    topping = "Bacon";
-            //}
-            //if (chkPasta.IsChecked == true)
-            //{
-            //    extra = "Pasta";
-            //}
-            //if (chkGarlicBread.IsChecked == true)
-            //{
-            //    extra = "Garlic Bread";
-            //}
-            //if (chkWings.IsChecked == true)
-            //{
-            //    extra = "Chicken Wings";
-            //}
-            //if (chkFries.IsChecked == true)
-            //{
-            //    extra = "Fries";
-            //}
-            //if (chkCan.IsChecked == true)
-            //{
-            //    extra = "Can of Pop";
-            //}
-            
             string connection = "datasource=localhost; port=3306; username=root; password=sang12529; database=pizzashop";
 
-            string query1 = "insert into order (`orderId`,`size`,`crust`) values(null,'" + size + "','" + crust + "');";
-            
-            //string query2 = "insert into topping(`toppingId`,`orderId`,`topping`) values(null,'" + orderId + "','" + topping + "')";
-            //string query3 = "insert into extra(`extraId`,`orderId`,`extraName`) values(null,'" + orderId2 + "','" + extra + "')";
+            string query1 = "insert into orders (`id`,`size`,`crust`,`topping`,`extra`,`total`,`tax`,`grandTotal`)" +
+                "values(null,'" + size + "','" + crust + "','" + topping + "','" + extra + "','" + total + "','" + tax + "','" + grandTotal + "')";
+          
 
             MySqlConnection conn = new MySqlConnection(connection);
 
             MySqlCommand command1 = new MySqlCommand(query1, conn);
-
-            //command1.CommandType = CommandType.StoredProcedure;
-            //command1.Parameters.AddWithValue("@orderId", null);
-            //command1.Parameters.AddWithValue("@size", size);
-            //command1.Parameters.AddWithValue("@crust", crust);
-            //MySqlCommand command2 = new MySqlCommand(query2, conn);
-            //MySqlCommand command3 = new MySqlCommand(query3, conn);
-
+            
             command1.CommandTimeout = 60;
-            //command2.CommandTimeout = 60;
-            //command3.CommandTimeout = 60;
-
+           
             conn.Open();
             
             MySqlDataReader dataReader = command1.ExecuteReader();
 
-            //MySqlDataReader dataReader1 = command1.ExecuteReader();
-            //int orderId = Convert.ToInt32(command2.ExecuteScalar());
-            //int orderId2 = Convert.ToInt32(command3.ExecuteScalar());
-            // MySqlDataReader dataReader2 = command2.ExecuteReader();
 
             conn.Close();
-            
-            
+         
             MessageBox.Show("Thank You ! your order has been placed");    
         }
-        //public static void main(string[] args)
-        //{
-        //    Application.Run();
-        //}
     }
 }
 
