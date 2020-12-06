@@ -34,9 +34,6 @@ namespace Login
         string crust = "";
         string topping = "";
         string extra = "";
-        //double total=0.00;
-        //double tax = 0.00;
-        //double grandTotal = 0.00;
       
         ArrayList list = new ArrayList();
 
@@ -337,9 +334,8 @@ namespace Login
             string connection = "datasource=localhost; port=3306; username=root; password=sang12529; database=pizzashop";
 
             string query1 = "insert into orders (`id`,`size`,`crust`,`topping`,`extra`,`total`,`tax`,`grandTotal`)" +
-                "values(null,'" + size + "','" + crust + "','" + topping + "','" + extra + "','" + total + "','" + tax + "','" + grandTotal + "')";
+                            "values(null,'" + size + "','" + crust + "','" + topping + "','" + extra + "','" + total + "','" + tax + "','" + grandTotal + "')";
           
-
             MySqlConnection conn = new MySqlConnection(connection);
 
             MySqlCommand command1 = new MySqlCommand(query1, conn);
@@ -349,7 +345,6 @@ namespace Login
             conn.Open();
             
             MySqlDataReader dataReader = command1.ExecuteReader();
-
 
             conn.Close();
          

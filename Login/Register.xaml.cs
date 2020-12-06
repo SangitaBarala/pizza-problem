@@ -26,7 +26,7 @@ namespace Login
             InitializeComponent();
         }
 
-        /* If user register its information will be stored into databse
+        /* If user registers, its information will be stored into databse
          */
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
